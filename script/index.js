@@ -83,17 +83,29 @@ let el = document.querySelector("#response")
 // )
 
 // FETCH
-// THEN > CATCH
 const showData = async () => {
     // console.log("Get Data")
-    fetch("https://jsonplaceholder.typicode.com/posts/5")
-    .then(res => {
-        // console.log(res.json())
-        return res.json()
-    })
-    .then(data => {
-        console.log(data)
-        el.innerHTML = data.body
-    })
-    .catch(err => console.log(err))
+    // THEN > CATCH
+    // fetch("https://jsonplaceholder.typicode.com/posts/5")
+    // .then(res => {
+    //     // console.log(res.json())
+    //     return res.json()
+    // })
+    // .then(data => {
+    //     console.log(data)
+    //     el.innerHTML = data.body
+    // })
+    // .catch(err => console.log(err))
+    
+    // ASYNC AWAIT
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts/5")
+        // console.log(response.json())
+        const data = await response.json()
+        // console.log(data)
+        el.innerHTML = data.body;
+    } catch (err) {
+        console.log(err)
+    }
+
 }
