@@ -34,7 +34,10 @@ let el = document.querySelector("#response")
 
 const doFirst = () => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => resolve("<br/> I was first...."), 2000);
+        setTimeout(() => {
+            resolve("<br/> I was first....")
+            // reject("<br/> Error...")
+        }, 2000);
     });
 };
 
@@ -46,9 +49,35 @@ const doFirst = () => {
 // .catch(err => console.log(err));
 
 // ASYNC
+// const showMessages = async () => {
+//     let firstMessage = await doFirst();
+//     el.innerHTML += firstMessage + "<br/>And I am second!!!";
+// }
+
+// showMessages()
+
+// ERROR HANDLING
 const showMessages = async () => {
-    let firstMessage = await doFirst();
-    el.innerHTML += firstMessage + "<br/>And I am second!!!";
+    try {
+        let firstMessage = await doFirst();
+        el.innerHTML += firstMessage + "<br/>And I am second!!!";
+    } catch (err) {
+        el.innerHTML = err
+    }
 }
 
-showMessages()
+// showMessages()
+
+// doFirst()
+// .then(data => el.innerHTML += data)
+// .catch(err => el.innerHTML += err + "<br/> Check with Admin")
+
+doFirst()
+.then(
+    resolve => {
+        el.innerHTML += resolve + "<br/>And I am second!!!"
+    },
+    reject => {
+        el.innerHTML += "<p style='color:red;'>" + reject + "<br/> Check with Admin"
+    }
+)
