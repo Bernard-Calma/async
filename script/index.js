@@ -38,10 +38,17 @@ const doFirst = () => {
     });
 };
 
-doFirst()
-.then(data => {
-    el.innerHTML += data;
-    el.innerHTML += "<br/>And I am second!!!"
-})
-.catch(err => console.log(err));
+// doFirst()
+// .then(data => {
+//     el.innerHTML += data;
+//     el.innerHTML += "<br/>And I am second!!!"
+// })
+// .catch(err => console.log(err));
 
+// ASYNC
+const showMessages = async () => {
+    let firstMessage = await doFirst();
+    el.innerHTML += firstMessage + "<br/>And I am second!!!";
+}
+
+showMessages()
