@@ -1,12 +1,19 @@
 {
-    "employees": [
-        {
-            "username": "Bernard",
-            "password": "1234"
-        },
-        {
-            "username": "Reyzen",
-            "password": "1234"
-        }
-    ]
+  "employees": [
+    {
+      "id": 1,
+      "username": "Bernard",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "username": "Reyzen",
+      "password": "1234"
+    },
+    {
+      "username": "Ryznrd",
+      "password": "1234",
+      "id": 3
+    }
+  ]
 }

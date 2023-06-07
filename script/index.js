@@ -99,11 +99,21 @@ const showData = async () => {
     
     // ASYNC AWAIT
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts/5")
+        const response = await fetch("http://localhost:8000/employees", {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                "username": "Ryznrd", 
+                "password": "1234"
+            })
+
+        })
         // console.log(response.json())
         const data = await response.json()
-        // console.log(data)
-        el.innerHTML = data.body;
+        // console.log(data.username)
+        el.innerHTML = data.username;
     } catch (err) {
         console.log(err)
     }
