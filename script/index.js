@@ -83,6 +83,17 @@ let el = document.querySelector("#response")
 // )
 
 // FETCH
+// THEN > CATCH
 const showData = async () => {
-    console.log("Get Data")
+    // console.log("Get Data")
+    fetch("https://jsonplaceholder.typicode.com/posts/5")
+    .then(res => {
+        // console.log(res.json())
+        return res.json()
+    })
+    .then(data => {
+        console.log(data)
+        el.innerHTML = data.body
+    })
+    .catch(err => console.log(err))
 }
